@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="grid-item">
+            <h2>Welcome to the Art Gallery</h2>
+            <p>This gallery explores the beauty and intricacies of nature through art. Discover how artists interpret the natural world and convey its wonders through various mediums.</p>
+        </section>
+
+        <section id="gallery" class="grid-item">
+            <h2>Nature Gallery</h2>
+            <div class="gallery-grid">
+                <img src="assets/1.jfif" alt="Nature Art 1">
+                <img src="assets/2.webp" alt="Nature Art 2">
+                <img src="assets/3.avif" alt="Nature Art 3">
+                <img src="assets/4.jfif" alt="Nature Art 4">
+                <img src="assets/5.avif" alt="Nature Art 5">
+                <img src="assets/6.jfif" alt="Nature Art 6">
+                <img src="assets/7.jfif" alt="Nature Art 7">
+                <img src="assets/8.jpg" alt="Nature Art 8">
+                <img src="assets/9.jfif" alt="Nature Art 9">
+            </div>
+        </section>
+
+        <section id="services" class="grid-item">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Art Consultations</h3>
+                    <img src="assets/a.jfif" alt="Art Consultations">
+                    <p>Personalized advice for your art collection.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Framing</h3>
+                    <img src="assets/b.jfif" alt="Custom Framing">
+                    <p>Tailored framing options for your artwork.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Exhibitions and Events</h3>
+                    <img src="assets/c.jfif" alt="Exhibitions">
+                    <p>Host your own art exhibitions and events.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Art Classes</h3>
+                    <img src="assets/d.png" alt="Art Classes">
+                    <p>Learn new skills in our art workshops.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Online Art Store</h3>
+                    <img src="assets/e.jfif" alt="Online Store">
+                    <p>Shop a wide selection of artwork online.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="grid-item">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="password" id="password" placeholder="Create Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="imageSection" class="grid-item" style="display:none;">
+            <h2>Submit an Image</h2>
+            <form id="imageForm">
+                <input type="url" id="imageUrl" placeholder="Paste Image URL" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="imagePreview" style="margin-top: 20px;">
+                <!-- The image will be displayed here after submission -->
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
