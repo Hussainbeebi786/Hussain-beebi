@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Men's Online Shopping</h1>
+        <p>Your ultimate destination for trendy men's fashion and lifestyle products.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a onclick="showSection('about')">About</a></li>
+            <li><a onclick="showSection('portfolio')">Portfolio</a></li> 
+            <li><a onclick="showSection('products')">Products</a></li>
+            <li><a onclick="showSection('wishlist')">Wishlist</a></li>
+            <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="active">
+        <h1>About Us</h1>
+        <p>Welcome to our store! Discover a wide range of men's fashion, from sharp suits to casual wear, crafted to elevate your style.</p>
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732215943/VH_M_HB_260_11_24_Menssuits_cvjluf.jpg" alt="Men's Fashion 1">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732215608/ea4e75800e62dce7032c6b46f3868780_a1z33w.jpg" alt="Men's Fashion 2">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732215590/cb6b480ea45a9e4e94d9afa4a6d35ed2_drihgz.jpg" alt="Men's Fashion 3">
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Our Portfolio</h2>
+        <div class="portfolio-item">
+            <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216319/56024_2_-800x1100_dcuuux.jpg" alt="Portfolio 1">
+            <h3>Formal Look</h3>
+            <p>Showcasing a modern formal collection.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216329/vjvnow-1_8089e9a6-d4dd-41c1-bc5c-c9d7c3d5965a_480x480_yyb1ic.webp" alt="Portfolio 2">
+            <h3>Casual Style</h3>
+            <p>Comfortable yet stylish casual wear.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Products</h2>
+        <div id="filters">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="clothing">Clothing</option>
+                <option value="accessories">Accessories</option>
+                <option value="footwear">Footwear</option>
+            </select>
+
+            <label for="price">Sort by Price:</label>
+            <select id="price">
+                <option value="low-to-high">Low to High</option>
+                <option value="high-to-low">High to Low</option>
+            </select>
+        </div>
+
+        <div id="product-grid">
+            <!-- Product Items -->
+            <div class="product" data-category="clothing" data-price="1200">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216985/Burnt_Peach_Rayon_Anarkali_Suit_Set2_gspkse.webp" alt="Suit">
+                <h3>Elegant Suit</h3>
+                <p>Price: $1200</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="clothing" data-price="400">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216984/b3a433ff-96da-4f1e-afa6-ca49c057dab71718040231011TheRoadsterLifestyleCoPureCottonCasualShirts1_ucuitl.jpg" alt="Casual Shirt">
+                <h3>Casual Shirt</h3>
+                <p>Price: $400</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="footwear" data-price="800">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216984/51kqa68rXQL._AC_UY1000__a7slbj.jpg" alt="Boots">
+                <h3>Stylish Boots</h3>
+                <p>Price: $800</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="150">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216984/32-belt-g-804-tan-men-casual-genuine-leather-belt-gil-original-imagry2hpjptdfet_mkauhr.webp" alt="Belt">
+                <h3>Leather Belt</h3>
+                <p>Price: $150</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="250">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1732216985/0ee363ad8106d9e8618776d0d59ba64f181b5aa1_original_tcfhmb.jpg" alt="Watch">
+                <h3>Men's Watch</h3
+               >Price: $250</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlist Section -->
+    <section id="wishlist">
+        <h2>Your Wishlist</h2>
+        <ul id="wishlist-items"></ul>
+        <div id="total-price">Total Price: $0</div>
+        <button id="clear-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Men's Online Shopping. All rights reserved.</p>
+    </footer>
+
+   <!-- JavaScript -->
+   <script>
+    // Show the selected section and hide others
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => section.classList.remove('active'));
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) selectedSection.classList.add('active');
+    }
+
+    // Handle Wishlist
+    const wishlistItems = document.getElementById('wishlist-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    function addToWishlist(productName, productPrice) {
+        const li = document.createElement('li');
+        li.textContent = `${productName} - $${productPrice}`;
+        wishlistItems.appendChild(li);
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        let total = 0;
+        wishlistItems.querySelectorAll('li').forEach(item => {
+            const price = parseFloat(item.textContent.split('$')[1]);
+            total += price;
+        });
+        totalPriceElement.textContent = `Total Price: $${total}`;
+    }
+
+    function clearWishlist() {
+        wishlistItems.innerHTML = '';
+        updateTotalPrice();
+    }
+
+    document.querySelectorAll('.add-to-wishlist').forEach(button => {
+        button.addEventListener('click', function () {
+            const product = this.parentElement;
+            const name = product.querySelector('h3').textContent;
+            const price = product.querySelector('p').textContent.split('$')[1];
+            addToWishlist(name, price);
+        });
+    });
+</script>
+</body>
+</html>
+    
