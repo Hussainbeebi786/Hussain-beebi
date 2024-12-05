@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Booking Form</title>
+  <link rel="stylesheet" href="product-booking.css">
+</head>
+<body>
+  <header>
+    <nav>
+          <a href="view.html">Home</a>
+          <a href="places.html">Experiences</a>
+          <a href="destination.html">Destinations</a>
+          <a href="booking.html">Book Now</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="booking2.html">Place Order</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Order Product </h2>
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="product-category">Product Category:</label>
+        <select id="product-category" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Bags">Bags</option>
+          <option value="Footwear">Footwear</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="product">Product:</label>
+        <select id="product" required>
+          <option value="" disabled selected>Select a product</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" placeholder="Enter quantity" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Booking Date:</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Place Order</button>
+      </div>
+    </form>
+  </div>
+  <div id="message"></div>
+  <footer>
+    <p>&copy; 2024 Explore the World. All Rights Reserved.</p>
+</footer>
+
+  <script src="product-booking.js"></script>
+</body>
+</html>

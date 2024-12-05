@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Products</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body> 
+    <h1 id="name1">Explore Tourism Products</h1>
+    <header>
+            <nav>
+              <a href="view.html">Home</a>
+              <a href="places.html">Experiences</a>
+              <a href="destination.html">Destinations</a>
+              <a href="booking.html">Book Now</a>
+              <a href="about.html">About Us</a>
+              <a href="products.html">Products</a>
+              <a href="booking2.html">Place Order</a>
+            </nav>
+    </header>
+    <section id="product-filters">
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Bags">Bags</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Footwear">Footwear</option>
+        </select>
+        <select id="productSortPrice">
+            <option value="none">Sort by Price</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+        </select>
+        <select id="productSortrating">
+            <option value="none">Sort by rating</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+        </select>
+    </section>
+    <section id="product-list" class="product-container"></section>
+    <footer class="footer1">
+        <p>&copy; 2024 Explore the World. All rights reserved.</p>
+      </footer>
+    <script src="product.js"></script>
+</body>
+</html>

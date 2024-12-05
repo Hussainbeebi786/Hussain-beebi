@@ -1,0 +1,94 @@
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  header {
+    background: #4335A7;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10%;
+  }
+  
+  footer {
+    
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+  }
+  
+  /* Booking Section Styles */
+  .booking-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-section h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .booking-section label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .booking-section input,
+  .booking-section select,
+  .booking-section button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .booking-section input:focus,
+  .booking-section select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .booking-section button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .booking-section button:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .booking-section {
+      padding: 15px;
+    }
+  }
+  
