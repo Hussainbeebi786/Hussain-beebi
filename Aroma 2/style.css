@@ -1,0 +1,161 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f1ef; /* Light background */
+    color: #333; /* Dark text color */
+}
+
+/* Header Styling */
+header {
+    background-color: #fc24dc; /* Dark background */
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center the navigation */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(216, 16, 196, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: rgb(24, 2, 27);
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #444;
+}
+
+nav a.active {
+    background-color: #555;
+}
+
+/* Container and Section Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px; /* Adjust for fixed header */
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.grid-item {
+    background-color: rgb(225, 87, 240);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(209, 116, 246, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Courses Section Styling */
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #d8d1dd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(182, 122, 238, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.course-card p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+/* Leaderboard Section Styling */
+.leaderboard {
+    background-color: #9d6ef9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(150, 111, 243, 0.1);
+}
+
+.leaderboard h3 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.leaderboard-table th {
+    background-color: #6a4cff;
+    color: white;
+}
+
+.leaderboard-table td {
+    background-color: #f8f8f8;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid hsl(272, 68%, 72%);
+}
+
+form button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4cae4c;
+}

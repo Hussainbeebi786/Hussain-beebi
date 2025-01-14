@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform with Leaderboards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#leaderboard" class="nav-link">Leaderboard</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="grid-item">
+            <h2>Welcome to the Online Learning Platform</h2>
+            <p>Enhance your skills with our engaging courses and compete on the leaderboard!</p>
+        </section>
+
+        <section id="courses" class="grid-item">
+            <h2>Our Courses</h2>
+            <div class="course-list">
+                <div class="course-card">
+                    <h3>Course 1: Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript, and more to build interactive websites.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Course 2: Data Science</h3>
+                    <p>Master Python, machine learning, and data analysis techniques.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Course 3: Digital Marketing</h3>
+                    <p>Learn SEO, social media marketing, and analytics for business growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="leaderboard" class="grid-item">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard">
+                <h3>Top Learners</h3>
+                <table class="leaderboard-table">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Points</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>450</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Samuel Green</td>
+                        <td>400</td>
+                    </tr>
+                    <!-- Add more leaderboard entries as needed -->
+                </table>
+            </div>
+        </section>
+
+        <section id="contact" class="grid-item">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
