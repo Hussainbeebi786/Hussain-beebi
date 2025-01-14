@@ -1,0 +1,161 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f1ef; /* Light background */
+    color: #333; /* Dark text color */
+}
+
+/* Header Styling */
+header {
+    background-color: #e721f1; /* Dark background */
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center the navigation */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: rgb(24, 2, 27);
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #444;
+}
+
+nav a.active {
+    background-color: #555;
+}
+
+/* Container and Section Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px; /* Adjust for fixed header */
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.grid-item {
+    background-color: rgb(225, 87, 240);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(209, 116, 246, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Feed Section Styling */
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feed-post {
+    background-color: #d8d1dd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(182, 122, 238, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+}
+
+.feed-post:hover {
+    transform: scale(1.05);
+}
+
+.feed-post img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for feed images */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.feed-post h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.feed-post p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+/* Services Section Styling */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #9d6ef9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(150, 111, 243, 0.1);
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid hsl(272, 68%, 72%);
+}
+
+form button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4cae4c;
+}

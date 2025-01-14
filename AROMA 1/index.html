@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Feed Pages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#feed" class="nav-link">Media Feed Page</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="grid-item">
+            <h2>Welcome to the Social Media Feed Page</h2>
+            <p>Stay connected with your friends and the latest trends. Share, like, and explore the feed tailored just for you.</p>
+        </section>
+
+        <section id="feed" class="grid-item">
+            <h2>Your Feed</h2>
+            <div class="feed-grid">
+                <div class="feed-post">
+                    <h3>Post 1</h3>
+                    <img src="C:\Users\shaek\OneDrive\Desktop\AROMA 1\social.webp" alt="Post 1 Image">
+                    <p>Caption or description of the post goes here.</p>
+                </div>
+                <div class="feed-post">
+                    <h3>Post 2</h3>
+                    <img src="C:\Users\shaek\OneDrive\Desktop\AROMA 1\media.jpeg" alt="Post 2 Image">
+                    <p>Caption or description of the post goes here.</p>
+                </div>
+                <div class="feed-post">
+                    <h3>Post 3</h3>
+                    <img src="C:\Users\shaek\OneDrive\Desktop\AROMA 1\feed.jpeg" alt="Post 3 Image">
+                    <p>Caption or description of the post goes here.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="grid-item">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Post Scheduling</h3>
+                    <p>Plan your posts and go live anytime.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Insights</h3>
+                    <p>Get detailed insights into your audience.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ad Management</h3>
+                    <p>Run targeted ads on the platform.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="grid-item">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
