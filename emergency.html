@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart City Information Management - Emergency Contacts</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #004a99;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 4px solid #003366;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 100;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: black;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      text-align: left;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    #logout-button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    #logout-button:hover {
+      background-color: #cc0000;
+    }
+
+    .centered {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 26px;
+      color: #004a99;
+    }
+  
+    /* ✅ Hero Slide Section - Fullscreen, Centered */
+.hero-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2a8def, #003366);
+    border: 6px solid #ffffff;
+    border-radius: 16px;
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    color: #ffffff;
+    transition: transform 0.4s ease;
+}
+
+.hero-slide:hover {
+    transform: scale(1.01);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 8px;
+      width: calc(33.33% - 40px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      max-width: 400px;
+      min-width: 300px;
+    }
+
+    .service-card:hover {
+      transform: translateY(5px);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      padding: 15px 15px 5px;
+      font-size: 20px;
+      color: #003366;
+    }
+
+    .service-card p {
+      padding: 0 15px 15px;
+      font-size: 15px;
+      color: #555;
+    }
+
+    #contact {
+      background-color: #e9eff5;
+      padding: 30px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 2px solid #ccc;
+    }
+
+    #contact h2 {
+      font-size: 240px;
+      margin-bottom: 150px;
+    }
+
+    #contact a {
+      color: #004a99;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #003366;
+      color: white;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+    .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 images in one row */
+    gap: 30px;
+    padding: 100px;
+    background-color: #f9fafb;
+}
+
+    /* Featured card spans full width on desktop */
+.featured-card {
+    grid-column: span 3;
+    height: 300;
+}
+
+    /* ✅ Fixed Responsive CSS */
+    @media (max-width: 1024px) {
+      .service-card {
+        width: calc(50% - 30px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-card {
+        width: 100%;
+      }
+    }
+    .category-card img {
+        height: 400px;
+    }
+
+
+   .category-card img {
+    width: 100%;
+    height: 350px; /* Large height */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.category-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    width: 200%;
+    max-width: 400px; /* 👈 Keeps all cards the same size */
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card img {
+    width: 300%;
+    height: 200px; /* 👈 Bigger height */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.category-card h3 {
+    color: #003366;
+    margin-bottom: 8px;
+    font-size: 10px;
+}
+
+.category-card p {
+    font-size: 10px;
+    color: #666666;
+}
+
+.category-card .arrow {
+    font-size: 22px;
+    color: #003366;
+    margin-top: 12px;
+    display: inline-block;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #4779ce;
+    margin: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #c3ced7;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fff;
+    color: #003366;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#contact h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#contact p {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+}
+
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Smart City Information Management System</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Categories &#9662;</a>
+            <div class="dropdown-content">
+              <a href="city-services.html">City Services</a>
+              <a href="emergency.html">Emergency Contacts</a>
+              <a href="alert.html">Alerts</a>
+              <a href="weather.html">Weather</a>
+              <a href="events.html">Events</a>
+              <a href="traffic.html">Traffic Updates</a>
+              <a href="sustainability.html">Sustainability</a>
+              <a href="transport.html">Transport</a>
+            </div>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="logout-button">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="centered">Emergency Contacts in Bengaluru</h2>
+    <section class="service-list">
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756361663/police_ogrovl.jpg" alt="Police" />
+        <h3>Police</h3>
+        <p>Call 100 for immediate police assistance and emergencies.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756361670/fire_iwktee.jpg" alt="Fire Department" />
+        <h3>Fire Department</h3>
+        <p>Dial 101 for fire emergencies and rescue operations.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756361687/OIP_r3e3tf.webp" alt="Ambulance" />
+        <h3>Ambulance</h3>
+        <p>Emergency medical help available on 102.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362031/women_vinf3i.jpg" alt="Women Safety" />
+        <h3>Women Safety Helpline</h3>
+        <p>Call 1091 for women’s safety and support.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362039/diaster_jjpzwr.jpg" alt="Disaster Management" />
+        <h3>Disaster Management</h3>
+        <p>Contact 108 for disaster relief and emergency services.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362047/cyber_ukmre9.jpg" alt="Cyber Crime" />
+        <h3>Cyber Crime Cell</h3>
+        <p>Report cyber crimes at 155260.</p>
+      </div>
+    </section>
+</main>
+        <!-- Contact Section -->
+       <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any queries or need assistance, please feel free to contact us.</p>
+            <p>Email: <a href="mailto:support@smartcity.com">support@smartcity.com</a></p>
+            <p>Phone: +1-234-567-890</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Smart City Information Management. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Logout Logic -->
+    <script>
+         document.getElementById("logout-button").addEventListener("click", function () {
+            localStorage.removeItem('isLoggedIn');
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
+  
+      
+
+    

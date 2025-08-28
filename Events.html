@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart City Information Management - Events</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reused CSS from other pages */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #004a99;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 4px solid #003366;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: black;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      text-align: left;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    #logout-button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    #logout-button:hover {
+      background-color: #cc0000;
+    }
+
+    .centered {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 26px;
+      color: #004a99;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 8px;
+      width: calc(33.33% - 40px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      max-width: 350px;
+      min-width: 250px;
+    }
+
+    .service-card:hover {
+      transform: translateY(5px);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      padding: 15px 15px 5px;
+      font-size: 20px;
+      color: #003366;
+    }
+
+    .service-card p {
+      padding: 0 15px 15px;
+      font-size: 15px;
+      color: #555;
+    }
+
+    #contact {
+      background-color: #e9eff5;
+      padding: 30px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 2px solid #ccc;
+    }
+
+    #contact h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    #contact a {
+      color: #004a99;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #003366;
+      color: white;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .service-card {
+        width: calc(50% - 30px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-card {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Smart City Information Management System</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Categories &#9662;</a>
+            <div class="dropdown-content">
+              <a href="city-services.html">City Services</a>
+              <a href="emergency.html">Emergency Contacts</a>
+              <a href="alert.html">Alerts</a>
+              <a href="weather.html">Weather</a>
+              <a href="events.html">Events</a>
+              <a href="traffic.html">Traffic Updates</a>
+              <a href="sustainability.html">Sustainability</a>
+              <a href="transport.html">Transport</a>
+            </div>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="logout-button">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="centered">Upcoming Events in Bengaluru</h2>
+    <section class="service-list">
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364224/muslic_zkwsal.jpg" alt="Music Festival">
+        <h3>Indie Music Fest</h3>
+        <p>Catch the best indie artists live at Freedom Park on Sept 5th from 6 PM onward.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364185/art_fk68p2.jpg" alt="Art Exhibition">
+        <h3>Art & Culture Exhibition</h3>
+        <p>Explore traditional and modern art at the Venkatappa Art Gallery from Sept 3–10.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364206/food_oqlrtl.jpg" alt="Food Festival">
+        <h3>Food Carnival</h3>
+        <p>Indulge in local and international cuisines at Lalbagh from Sept 6–8, 11 AM to 10 PM.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364357/smart_z8ft4r.jpg" alt="Tech Conference">
+        <h3>Smart City Tech Expo</h3>
+        <p>Join discussions and demos on smart city innovations at Palace Grounds, Sept 9–11.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364215/green_vzpjfh.jpg" alt="Charity Run">
+        <h3>Bangalore Green Run</h3>
+        <p>Participate in a 5K/10K run for sustainability awareness on Sept 15th, Cubbon Park.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756364196/book_hdkdla.jpg" alt="Book Fair">
+        <h3>Annual Book Fair</h3>
+        <p>Browse thousands of titles from leading publishers at BIEC from Sept 12–17.</p>
+      </div>
+    </section>
+  </main>
+
+<!-- Contact Section -->
+       <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any queries or need assistance, please feel free to contact us.</p>
+            <p>Email: <a href="mailto:support@smartcity.com">support@smartcity.com</a></p>
+            <p>Phone: +1-234-567-890</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Smart City Information Management. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Logout Logic -->
+    <script>
+         document.getElementById("logout-button").addEventListener("click", function () {
+            localStorage.removeItem('isLoggedIn');
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
+  
+      

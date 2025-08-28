@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart City Information Management - Alerts</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Same CSS from your city-services.html */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #004a99;
+      color: white;
+      padding: 20px 0;
+      border-bottom: 4px solid #003366;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: black;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      text-align: left;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    #logout-button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    #logout-button:hover {
+      background-color: #cc0000;
+    }
+
+    .centered {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 26px;
+      color: #004a99;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 8px;
+      width: calc(33.33% - 40px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      max-width: 350px;
+      min-width: 250px;
+    }
+
+    .service-card:hover {
+      transform: translateY(5px);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      padding: 15px 15px 5px;
+      font-size: 20px;
+      color: #003366;
+    }
+
+    .service-card p {
+      padding: 0 15px 15px;
+      font-size: 15px;
+      color: #555;
+    }
+
+    #contact {
+      background-color: #e9eff5;
+      padding: 30px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 2px solid #ccc;
+    }
+
+    #contact h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    #contact a {
+      color: #004a99;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #003366;
+      color: white;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .service-card {
+        width: calc(50% - 30px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-card {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Smart City Information Management System</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Categories &#9662;</a>
+            <div class="dropdown-content">
+              <a href="city-services.html">City Services</a>
+              <a href="emergency.html">Emergency Contacts</a>
+              <a href="alert.html">Alerts</a>
+              <a href="weather.html">Weather</a>
+              <a href="events.html">Events</a>
+              <a href="traffic.html">Traffic Updates</a>
+              <a href="sustainability.html">Sustainability</a>
+              <a href="transport.html">Transport</a>
+            </div>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="logout-button">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="centered">City Alerts</h2>
+    <section class="service-list">
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362670/flood_gvud80.jpg" alt="Flood Alert">
+        <h3>Flood Alert</h3>
+        <p>Heavy rainfall expected in low-lying areas. Citizens advised to avoid unnecessary travel.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756360992/electric_naxlyp.jpg" alt="Power Outage">
+        <h3>Power Outage Notice</h3>
+        <p>Scheduled power outage in Koramangala zone on Sept 1st from 10 AM to 3 PM.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184934/traffic_butn2c.webp" alt="Road Block">
+        <h3>Road Block</h3>
+        <p>Major road construction on MG Road. Expect delays and consider alternate routes.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362682/health_advance_pau3ex.jpg" alt="Health Advisory">
+        <h3>Health Advisory</h3>
+        <p>Increase in dengue cases reported. Use mosquito repellents and keep surroundings clean.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756361670/fire_iwktee.jpg" alt="Fire Alert">
+        <h3>Fire Safety Alert</h3>
+        <p>Fire drill at commercial complexes in Whitefield on Aug 30th. No action needed.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756362809/water_con_lfhuvh.jpg" alt="Water Contamination">
+        <h3>Water Contamination</h3>
+        <p>Water contamination in Indiranagar. Boil water before use until further notice.</p>
+      </div>
+    </section>
+  </main>
+
+ <!-- Contact Section -->
+       <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any queries or need assistance, please feel free to contact us.</p>
+            <p>Email: <a href="mailto:support@smartcity.com">support@smartcity.com</a></p>
+            <p>Phone: +1-234-567-890</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Smart City Information Management. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Logout Logic -->
+    <script>
+         document.getElementById("logout-button").addEventListener("click", function () {
+            localStorage.removeItem('isLoggedIn');
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
+  
+      
+
+    

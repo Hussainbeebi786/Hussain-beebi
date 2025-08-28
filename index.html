@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Information Management</title>
+
+    <!-- Correct path to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Optional: Google Fonts (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Redirect to login page if not logged in -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <h1>Smart City Information Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Categories &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="city-services.html">City Services</a>
+                            <a href="emergency.html">Emergency Contacts</a>
+                            <a href="alert.html">Alerts</a>
+                            <a href="weather.html">Weather</a>
+                            <a href="events.html">Events</a>
+                            <a href="traffic.html">Traffic Updates</a>
+                            <a href="sustainability.html">Sustainability</a>
+                            <a href="transport.html">Transport</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="logout-button">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2 class="centered">Explore Our City Benguluru</h2>
+        <section id="categories" class="categories-grid">
+            <!-- Linking category cards to the appropriate pages -->
+            <div class="category-card" onclick="window.location.href='city-services.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1755412434/city_services_bw3zdl.jpg" alt="City Services">
+                <h3>City Services</h3>
+                <p>Learn about the essential services of our city.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='emergency.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184461/OIP_nwgijr.webp" alt="Emergency Contacts">
+                <h3>Emergency Contacts</h3>
+                <p>Important emergency numbers and contacts.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='alert.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184641/alert_qpprms.avif" alt="Alerts">
+                <h3>Alerts</h3>
+                <p>Real-time alerts for the city’s events and emergencies.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='weather.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184855/weather_tgsk2b.webp" alt="Weather">
+                <h3>Weather</h3>
+                <p>Stay updated with current weather conditions.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='events.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184921/event_spiaab.jpg" alt="Events">
+                <h3>Events</h3>
+                <p>Upcoming city events, festivals, and public gatherings.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='traffic.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756184934/traffic_butn2c.webp" alt="Traffic Updates">
+                <h3>Traffic Updates</h3>
+                <p>Live updates on traffic, accidents, and roadwork.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='sustainability.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756185140/sustainability_reszdp.webp" alt="Sustainability">
+                <h3>Sustainability</h3>
+                <p>Discover eco-friendly city initiatives.</p>
+                <span class="arrow">➔</span>
+            </div>
+            <div class="category-card" onclick="window.location.href='transport.html'">
+                <img src="https://res.cloudinary.com/dfq10lfk8/image/upload/v1756185148/transport_rbukts.webp" alt="Transport">
+                <h3>Transport</h3>
+                <p>Information about public transportation options.</p>
+                <span class="arrow">➔</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+       <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any queries or need assistance, please feel free to contact us.</p>
+            <p>Email: <a href="mailto:support@smartcity.com">support@smartcity.com</a></p>
+            <p>Phone: +1-234-567-890</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Smart City Information Management. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Logout Logic -->
+    <script>
+         document.getElementById("logout-button").addEventListener("click", function () {
+            localStorage.removeItem('isLoggedIn');
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

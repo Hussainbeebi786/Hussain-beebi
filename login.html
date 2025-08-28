@@ -1,0 +1,255 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f7; /* Light grey background */
+            text-align: center;
+        }
+
+        /* Page Container Styling */
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #665000; /* Dark blue background */
+        }
+
+        section {
+            max-width: 400px;
+            width: 90%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        h2 {
+            color: #250066; /* Dark blue title */
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px; /* Increased space between input fields */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2b0066;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00509e; /* Hover effect for button */
+        }
+
+        p {
+            color: #003366;
+            font-size: 14px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hidden-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        </style>
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page">
+        <section id="login">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+                <p id="login-error" class="hidden">Invalid username or password!</p>
+            </form>
+            <p>
+                <a href="#" id="register-link">Register</a> |
+                <a href="#" id="forgot-password-link">Forgot Password?</a>
+            </p>
+        </section>
+    </div>
+
+   <!-- Register Page -->
+<div id="register-page" class="hidden">
+    <section id="register">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" placeholder="Enter a username" required>
+
+            <label for="new-password">Password:</label>
+            <input type="password" id="new-password" placeholder="Enter a strong password" required>
+            <small>Password must contain at least 8 characters, including an uppercase letter, a number, and a special character.</small>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+
+            <button type="submit">Register</button>
+            <p id="register-error" class="hidden">Error: Passwords do not match or are not strong enough!</p>
+        </form>
+        <p><a href="#" id="back-to-login">Back to Login</a></p>
+    </section>
+</div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgot-password-page" class="hidden">
+        <section id="forgot-password">
+            <h2>Forgot Password</h2>
+            <form id="forgotPasswordForm">
+                <label for="email">Enter your email address:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Reset Password</button>
+                <p id="forgot-password-message" class="hidden">If this email is registered, you will receive a reset link.</p>
+            </form>
+            <p><a href="#" id="back-to-login-from-forgot">Back to Login</a></p>
+        </section>
+    </div>
+
+    <!-- Category Page (Example) -->
+    <div id="category-page" class="hidden">
+        <h2>Categories</h2>
+        <p>This is the category page, only visible after login.</p>
+        <!-- Add categories or content here -->
+    </div>
+
+    <script>
+        // Dummy data for registered users
+        let users = [
+            { username: "admin", password: "1234" }
+        ];
+
+        // Login Page Logic
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if user exists in the 'users' array
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                // Store login status in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect to home page
+            } else {
+                document.getElementById("login-error").classList.remove("hidden"); // Show error message
+            }
+        });
+
+        // Register Page Logic
+        document.getElementById("registerForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const newUsername = document.getElementById("new-username").value;
+            const newPassword = document.getElementById("new-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            // Check if the passwords match
+            if (newPassword === confirmPassword) {
+                users.push({ username: newUsername, password: newPassword });
+                alert("Registration successful! You can now log in.");
+                showPage("login-page"); // Go back to login page
+            } else {
+                document.getElementById("register-error").classList.remove("hidden");
+            }
+        });
+
+        // Forgot Password Logic
+document.getElementById("forgotPasswordForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    alert(`If the email (${email}) is registered, a reset link will be sent.`);
+    showPage("login-page"); // Go back to login page
+});
+
+        // Page Navigation Logic
+        document.getElementById("register-link").addEventListener("click", () => showPage("register-page"));
+        document.getElementById("forgot-password-link").addEventListener("click", () => showPage("forgot-password-page"));
+        document.getElementById("back-to-login").addEventListener("click", () => showPage("login-page"));
+        document.getElementById("back-to-login-from-forgot").addEventListener("click", () => showPage("login-page"));
+
+        // Function to show the page
+        function showPage(pageId) {
+            document.querySelectorAll("div").forEach(page => page.classList.add("hidden"));
+            document.getElementById(pageId).classList.remove("hidden");
+        }
+
+        // Redirect to login page if not logged in
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = "login.html"; // Redirect to login if not logged in
+            }
+        }
+
+        // Check login status when trying to access category page
+        if (window.location.pathname.includes("category")) {
+            checkLoginStatus();
+        }
+
+        // Example logic for navbar click to go to category page
+        document.getElementById("category-link").addEventListener("click", function (e) {
+            e.preventDefault();
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                alert("Please log in to access categories.");
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                showPage("category-page"); // Show category page if logged in
+            }
+        });
+
+    </script>
+</body>
+</html>
